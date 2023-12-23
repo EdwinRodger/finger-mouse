@@ -38,13 +38,12 @@ while True:
                     cv2.circle(img=frame, center=(x, y), radius=10, color=(0, 255, 255))
                     thumb_x = screen_width / frame_width * x
                     thumb_y = screen_height / frame_height * y
-                    print('outside', abs(index_y - thumb_y))
+                    print("outside", abs(index_y - thumb_y))
                     if abs(index_y - thumb_y) < 50:
-                        pyautogui.click()
-                        print("click")
+                        pyautogui.drag(x, y, button="left")
 
-    cv2.imshow('Virtual Mouse', frame)
-    if cv2.waitKey(1) == ord('q'):
+    cv2.imshow("Virtual Mouse", frame)
+    if cv2.waitKey(1) == ord("q"):
         break
 
 cap.release()
